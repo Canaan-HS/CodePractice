@@ -1,0 +1,10 @@
+__pycache__
+node_modules
+
+*.txt
+*.ini
+*.csv
+*.json
+*.exe
+*.pyc
+*.class
