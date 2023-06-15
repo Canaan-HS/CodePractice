@@ -2,61 +2,112 @@ class Collection {
 /**_________________________
  ** { document }
  *
- * [ID元素]: document.getElementById(id)
- * [Tag 標籤列表]: document.getElementsByTagName(tagName)
- * [Class 元素列表]: document.getElementsByClassName(className)
- * [多選器, 匹配的第一元素]: document.querySelector(tag /.class /#id)
- * [多選器, 匹配的所有元素]: document.querySelectorAll(同上)
- * [創建元素節點]: document.createElement(tagName)
- * [創建文本的節點]: document.createTextNode(text)
+ * ?元素選擇器
+ * [根據元素的 id 屬性快速獲取單個元素]: document.getElementById(id)
+ * [根據標籤名獲取元素集合(HTMLCollection)]: document.getElementsByTagName(tagName)
+ * [根據類別名獲取元素集合(HTMLCollection)]: document.getElementsByClassName(className)
+ * [CSS 選擇器獲取第一個匹配的元素]: document.querySelector(selector)
+ * [CSS 選擇器獲取所有匹配的元素(NodeList)]: document.querySelectorAll(selector)
+ * [從當前元素向上尋找最近的符合 CSS 選擇器的祖先元素]: element.closest(selector)
+ * [根據元素的 name 屬性獲取元素集合(NodeList)]: document.getElementsByName(name)
  *
- * [添加節點到末端]: 被添加元素.appendChild(添加元素)
- * [添加到節點前端]: 被添加元素.insertBefore(添加元素)
- * [刪除節點]: 父節點.removeChild(刪除元素)
- * [替換子節點]: 父節點.replaceChildren("替換內容")
- * [刪除節點]: 節點.remove()
+ * ?元素獲取與內容操作
+ * [獲取或設置元素的文本內容]: element.textContent
+ * [獲取元素的子元素數量]: element.childElementCount
+ * [獲取元素的子元素集合(HTMLCollection)]: element.children
+ * [獲取或設置元素的文本內容]: element.innerText
+ * [獲取或設置元素的 HTML 內容]: element.innerHTML
+ * [獲取或設置包含元素本身的 HTML 內容]: element.outerHTML
+ * [檢查元素是否包含指定後代元素]: element.contains(otherElement)
+ * [獲取元素的所有子節點(包括文本和註解節點)]: element.childNodes
+ * [獲取父元素(限元素節點)]: element.parentElement
+ * [獲取元素的父節點(可任意節點)]: element.parentNode
+ * [獲取上一個兄弟節點(可任意節點)]: element.previousSibling
+ * [獲取元素的上一個兄弟元素(限元素節點)]: element.previousElementSibling
+ * [獲取下一個兄弟節點(可任意節點)]: element.nextSibling
+ * [獲取元素的下一個兄弟元素(限元素節點)]: element.nextElementSibli
+ * [獲取元素的第一個子節點(可任意節點)]: element.firstChild
+ * [獲取元素的第一個子元素(限元素節點)]: element.firstElementChild
+ * [獲取元素的最後一個子節點(可任意節點)]: element.lastChild
+ * [獲取元素的最後一個子元素(限元素節點)]: element.lastElementChild
  *
- * [設置元素屬性]: 元素.setAttribute(name, value)
- * [取得元素屬性]: 元素.getAttribute(name)
- * [刪除元素屬性]: 元素.removeAttribute(name)
- * [取得元素文本內容]: 元素.textContent
- * [取得子元素數量]: 元素.childElementCount
- * [取得子元素]: 元素.children
+ * ?元素創建與節點操作
+ * [創建 HTML 元素]: document.createElement(tagName)
+ * [創建文本節點]: document.createTextNode(text)
+ * [複製元素節點，deep 決定是否包含子節點]: element.cloneNode(deep)
+ * [創建文檔片段，用於批量操作 DOM 提升性能]: document.createDocumentFragment()
+ * [insertAdjacent 的 position]: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
+ * [在指定位置插入 HTML 字符]: element.insertAdjacentHTML(position, text)
+ * [在指定位置插入一個元素]: element.insertAdjacentElement(position, element)
+ * [創建註解節點]: document.createComment(text)
+ * [創建屬性節點]: document.createAttribute(name)
+ * [定義自定義元素，用於 Web Components]: customElements.define(name, constructor, options)
+ * [為元素附加 Shadow DOM, mode 可設為 open 或 closed]: element.attachShadow({ mode })
  *
- * [取得元素第一個子節點]: 元素.firstElementChild
- * [取得元素同級 上方的元素]: 元素.previousElementSibling
- * [取得元素同級 下方的元素]: 元素.nextElementSibling
- * [取得元素最後一個子節點]: 元素.lastElementChild
+ * ?節點(添加|刪除)
+ * [單或多個節點添加到父元素末尾]: parent.append(...nodes)
+ * [單或多個節點添加到父元素開頭]: parent.prepend(...nodes)
+ * [單個節點添加到父元素末尾]: parent.appendChild(node)
+ * [父元素之前插入節點]: parent.before(node)
+ * [父元素之後插入節點]: parent.after(node)
+ * [DOM 中刪除當前元素]: element.remove()
+ * [從父元素中刪除指定子節點]: parent.removeChild(child)
+ * [當前元素之前插入一個節點]: element.insertBefore(node)
+ * [用一個或多個節點替換當前元素]: element.replaceWith(...nodes)
+ * [用一個或多個節點替換父元素的所有子節]: parent.replaceChildren(...nodes)
+ * [用新節點替換父元素的指定子節點]: parent.replaceChild(newChild, oldChild)
  *
- * Todo (可配合 .add() | .remov())
- * [取得元素 Html]: 元素.innerHTML (設置: 元素1.innerHTML = html)
- * [獲取元素 文本]: 元素.innerText (同上)
- * [獲取/設置 樣式]: 元素.style
- * [獲取/設置 類別]: 元素.classList
+ * ?屬性操作
+ * [設置元素屬性]: element.setAttribute(name, value)
+ * [取得元素屬性]: element.getAttribute(name)
+ * [刪除元素屬性]: element.removeAttribute(name)
+ * [切換元素屬性(存在則移除，不存在則添加)]: element.toggleAttribute(name, force)
+ * [檢查元素是否具有指定屬性]: element.hasAttribute(name)
+ * [獲取元素的所有屬性]: element.attributes
  *
- * 直接取得標籤:
- * document.title <title>
- * document.documentElement <html>
- * document.head <head>
- * document.body <body>
- * document.scripts <script>
- * document.embeds <embed>
- * document.forms <form>
- * document.fonts <字體>
- * document.images <img>
- * document.links <a>
+ * ?樣式操作
+ * [向元素添加一個或多個類別]: element.classList.add(className)
+ * [從元素移除指定類別]: element.classList.remove(className)
+ * [切換類別(存在則移除，不存在則添加)]: element.classList.toggle(className)
+ * [檢查元素是否包含指定類別]: element.classList.contains(className)
+ * [用新類別替換舊類別]: element.classList.replace(oldClassName, newClassName)
+ * [直接設置元素的類別字符串]: element.className = className
+ * [直接設置元素的內聯樣式]: element.style = style
+ * [設置元素的特定樣式屬性]: element.style.property = value
+ * [獲取元素的計算後樣式]: window.getComputedStyle(element)
  *
- * document.cookie 獲取 cookie
- * document.styleSheets 獲取樣式表
- * document.lastModified 文檔最後修改時間
- * document.characterSet 使用字符編碼
- * document.activeElement 獲取當前網頁焦點元素
- * document.visibilityState 可見狀態
- * document.referrer 來源位置
- * document.domain 文檔網域
- * document.location 文檔位置資訊
- * document.URL 網頁連結
- * document.documentURI 文件連結
+ * ?直接取得標籤
+ * [HTMLAllCollection]: document.all
+ * [<title>]: document.title
+ * [<html>]: document.documentElement
+ * [<head>]: document.head
+ * [<body>]: document.body
+ * [<script>]: document.scripts
+ * [<a>]: document.links
+ * [<img>]: document.images
+ * [<embed>]: document.embeds
+ * [<form>]: document.forms
+ * [獲取網域]: document.domain
+ * [獲取來源 URL]: document.referrer
+ * [獲取完整 URL]: document.URL
+ * [獲取 URI]: document.documentURI
+ * [獲取基礎 URI]: document.baseURI
+ * [獲取兼容模式]: document.compatMode
+ * [獲取當前獲得焦點的元素]: document.activeElement
+ * [獲取可見狀態]: document.visibilityState
+ * [獲取加載狀態]: document.readyState
+ * [獲取字體信息]: document.fonts
+ * [獲取或設置 Cookie]: document.cookie
+ * [獲取帶 name 屬性的 <a> 元素]: document.anchors
+ * [獲取所有樣式表]: document.styleSheets
+ * [獲取最後修改的時間]: document.lastModified
+ * [獲取使用的字符編碼]: document.characterSet
+ * [獲取位置信息]: document.location
+ *
+ * ?特別操作
+ * [將焦點設置到元素上]: element.focus()
+ * [返回元素相對於視窗的位置和尺寸信息]: element.getBoundingClientRect()
+ * [將元素滾動到可見區域]: element.scrollIntoView(alignToTop)
  */
 
 /**_________________________
@@ -84,13 +135,15 @@ class Collection {
 /**_________________________
  ** { addEventListener }
  *
- * 元素.addEventListener("監聽類型", "監聽後工作", {附加功能});
+ * [事件添加]: element.addEventListener("監聽類型", "監聽工作", {附加功能});
+ * [手動觸發]: element.dispatchEvent("監聽類型")
+ * [移除事件]: element.removeEventListener("監聽類型", "監聽工作")
  *
- *? 只能在控制台使用 (獲取整個頁面的監聽器)
+ * ?只能在控制台使用 (獲取整個頁面的監聽器)
  * window.getEventListeners(對象).監聽器類型
  *
  * 監聽類型:
- *? 滑鼠事件 / 對應手機端指針
+ * ?滑鼠事件 / 對應手機端指針
  * [滑鼠點擊]: "click"
  * [滑鼠點兩下]: "dblclick"
  * [滑鼠滾動]: "scroll"
@@ -104,12 +157,12 @@ class Collection {
  * [滑鼠離開]: "mouseleave" / "pointerleave" | 離開觸發一次
  * [滑鼠於元素上移動]: "mousemove" / "pointermove"
  *
- *? 手機觸碰事件
+ * ?手機觸碰事件
  * [手機按下]: "touchstart"
  * [手機放開]: "touchend"
  * [手機滑動]: "touchmove"
  *
- * ? 鍵盤事件
+ * ?鍵盤事件
  * [鍵盤放開]: "keyup"
  * [鍵盤按下]: "keydown"
  * [元素獲得焦點]: "focus" (通常用於 input 或 textarea)
@@ -120,7 +173,7 @@ class Collection {
  * [歷史紀錄變化]: "popstate" (url 的轉變)
  * [用戶離開頁面]: "beforeunload"
  *
- *? 監聽後事件:
+ * ?監聽後事件:
  * document.addEventListener("監聽類型", event => {
  *    event.preventDefault() 防止默認行為, 例如跳轉, 送出表單等
  *    event.stopPropagation() 防止事件傳播, 用於事件只作用在特定元素
@@ -277,7 +330,7 @@ class Collection {
  * Number.toPrecision(2) [回傳指定長度的數字]
  *
  * Number() [轉換為整數 類型]
-* parseInt() [解析為整數]
+ * parseInt() [解析為整數]
  * parseFloat() [解析為浮點數]
  */
 
