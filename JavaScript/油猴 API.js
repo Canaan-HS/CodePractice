@@ -190,11 +190,11 @@
  * nocache: 是否使用緩存
  * revalidate: 是否重新驗證緩存
  * timeout: 超時
- * responseType: [arraybuffer, blob, json , stream] 響應類型
+ * responseType: [text, arraybuffer, blob, document, json, stream] 響應類型
  * onload: 請求成功操作
  * onprogress: 請求追蹤
  * onerror: 請求失敗操作
- * 
+ *
  * @returns
  * onload: response => {
  *      response.response 回傳數據
@@ -215,6 +215,12 @@
  *      },
  *      onload: function(response) {
  *        console.log(response.responseText);
+ *      },
+ *      onprogress: function(response) {
+ *          
+ *      },
+ *      onerror: function(response) {
+ *    
  *      }
  * });
  */
