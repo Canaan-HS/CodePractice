@@ -25,7 +25,7 @@ class Collection {
  * [獲取上一個兄弟節點(可任意節點)]: element.previousSibling
  * [獲取元素的上一個兄弟元素(限元素節點)]: element.previousElementSibling
  * [獲取下一個兄弟節點(可任意節點)]: element.nextSibling
- * [獲取元素的下一個兄弟元素(限元素節點)]: element.nextElementSibli
+ * [獲取元素的下一個兄弟元素(限元素節點)]: element.nextElementSibling
  * [獲取元素的第一個子節點(可任意節點)]: element.firstChild
  * [獲取元素的第一個子元素(限元素節點)]: element.firstElementChild
  * [獲取元素的最後一個子節點(可任意節點)]: element.lastChild
