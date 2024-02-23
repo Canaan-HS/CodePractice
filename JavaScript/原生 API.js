@@ -409,3 +409,10 @@ class Collection {
  * obj = Symbol(obj) [轉換為 Symbol]
  */
 }
+
+/**
+ * * { 還未深入瞭解的 }
+ * PerformanceObserver() [監聽資源的載入, 用於性能分析]
+ * Object.defineProperty() [較舊的 API, 提供更強大與底層的 物件監聽控制與回條]
+ * Object.defineProperties() [同上]
+ */
