@@ -52,7 +52,7 @@ class Collection {
  * [父元素之後插入節點]: parent.after(node)
  * [DOM 中刪除當前元素]: element.remove()
  * [從父元素中刪除指定子節點]: parent.removeChild(child)
- * [當前元素之前插入一個節點]: element.insertBefore(node)
+ * [再父元素內參考節點插入節點]: element.insertBefore(node, referenceNode)
  * [用一個或多個節點替換當前元素]: element.replaceWith(...nodes)
  * [用一個或多個節點替換父元素的所有子節]: parent.replaceChildren(...nodes)
  * [用新節點替換父元素的指定子節點]: parent.replaceChild(newChild, oldChild)
