@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widdth=device-width, initial-scale=1">
+    <link rel="icon" href="https://img.icons8.com/?size=512&id=ZMc42tPbG32H&format=png&color=000000">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
+
+    <link rel="stylesheet" href="./Css/Custom.css">
+</head>
+
+<body>
+
+    <!--? https://getbootstrap.com/docs/5.3 -->
+
+    <!--? 主要容器框架的選擇 -->
+    <!--* ("container" 固定式寬度,固定聚集在網頁中間)  -->
+    <!--* ("container-fluid" 全寬容器,橫跨窗口整個寬度) -->
+
+    <!--
+!   Extra small | <576px Small |  ≥576px Medium | ≥768px Large | ≥992px Extra Large | ≥1200px XXL | ≥1400px  
+*   max-width     最大寬度100%	      540px	          720px	          960px	             1140px	       1320px
+*   網格            .col-            col-sm-         col-md-         col-lg-            col-xl-       col-xxl-
+*
+*   col是控制水平的排版 row是控制垂直的排版
+
+?   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+!   設置框架反應的時機點 -> 慢反應 ~ 快反應 
+*             Extra small <576px | Small ≥576px | Medium ≥768px | Large ≥992px |  Extra large ≥1200px | XXL ≥1400px
+*.container-sm      100%            540px	        720px	        960px	        1140px	        1320px
+*.container-md	    100%	        100%	        720px	        960px	        1140px	        1320px
+*.container-lg	    100%	        100%	        100%	        960px	        1140px	        1320px
+*.container-xl	    100%	        100%	        100%	        100%	        1140px	        1320px
+*.container-xxl	    100%	        100%	        100%	        100%	        100%            1320px
+*   xs (<=576px) 
+*   sm (>=576px) 
+*   md (>=768px) 
+*   lg (>=992px) 
+*   xl (>=1200px) or xxl (>=1400px))
+
+?   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+!   各類別單字代表
+*   m = margin
+*   p = padding
+*   ------------------------------------
+*   t = margin-top 或 padding-top
+*   b = margin-bottom 或 padding-bottom
+*   s = margin-left 或 padding-left
+*   e = margin-right 或 padding-right
+*   x = padding-left 和 padding-right 或 margin-left 和 margin-right
+*   y = padding-top 和 padding-bottom 或 margin-top 和 margin-bottom
+*   g = 物件的間距 1~5
+*   blank = 在元素的所有 4 個邊上設置一個 margin 或 padding
+*   ------------------------------------
+*   0 = 將 margin 或 padding 設置為 0
+*   1 = 將 margin 或 padding 設置為 .25rem
+*   2 = 將 margin 或 padding 設置為 .5rem
+*   3 = 將 margin 或 padding 設置為 1rem
+*   4 = 將 margin 或 padding 設置為 1.5rem
+*   5 = 將 margin 或 padding 設置為 3rem
+*   auto = 將 margin 設置為自動
+*   ------------------------------------
+*   m-0	    四邊邊距	
+*   mt-0	頂部邊距	
+*   mb-0	底部邊距	
+*   ms-0	左邊距	
+*   me-0	右邊距	
+*   mx-0	左邊距和右邊距	
+*   my-0	頂部和底部邊距	
+*   p-0	    四面填充	
+*   pt-0	填充頂部	
+*   pb-0	填充底部	
+*   ps-0	左填充	
+*   pe-0	右填充	
+*   py-0	填充頂部和底部	
+*   px-0	左右填充
+
+?   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+!   文本對齊類別Class
+*   text-start              (開使處對齊/置左)
+*   text-center             (置中)
+*   text-end                (結束處齊/置右)
+*   text-break              (長文本自動換行)
+*   text-decoration-none    (連結無底線)
+*   text-uppercase          (大寫文本)
+*   text-lowercase          (小寫文本)
+*   text-capitalize         (文本首字母大寫)
+
+?   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+!   Bootstrap 5 置中的類別
+*   d-flex                  (告訴網頁使用 flexbox 佈局的方式)
+*   justify-content-center  (告訴網頁確保所有內容（如文本或圖片）連續置中的方式)
+*   align-items-center      (另一種確保一切都居中的方法，但這次是在一列中。)
+*   text-center             (確保文本在頁面上居中的一種方式)
+
+?   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+!   顏色設置
+*   primary                 (藍色)
+*   success                 (綠色)
+*   info                    (淺藍)
+*   warning                 (黃色)
+*   danger                  (紅色)
+*   secondary               (灰色)
+*   dark                    (黑色)
+
+!   d-flex 的說明 ( * 代表任意)		 
+*   .d-*-flex                  (創建FlexBox) 
+*   .d-*-inline-flex           (創建FlexBox 內部的 FlexBox)
+*   .flex-*-row                (在不同螢幕水平顯示 FlexBox 內項目)	
+*   .flex-*-row-reverse        (在不同螢幕水平顯示 FlexBox 內項目,並靠右對齊)	
+*   .flex-*-column	           (在不同螢幕垂直顯示 FlexBox 內項目)
+*   .flex-*-column-reverse     (在不同螢幕相反的垂直顯示 FlexBox 內項目) 	
+*   .justify-content-*-start   (在不同螢幕左對齊)
+*   .justify-content-*-end     (在不同螢幕右對齊)	
+*   .justify-content-*-center  (在不同螢幕置中)
+*   .justify-content-*-between (在不同螢幕顯示項目之間的項目)	
+*   .justify-content-*-around  (在不同螢幕顯示項目周圍的項目)
+ 	
+*   .flex-*-fill               (在不同螢幕強制等寬)	 	 
+*   .flex-*-grow-0             (不使項目在不同螢幕增長)	 
+*   .flex-*-grow-1             (使項目在不同螢幕增長)	  	 
+*   .flex-*-shrink-0           (不使項目在不同螢幕縮減)	 
+*   .flex-*-shrink-1           (使項目在不同螢幕縮減)  	 
+*   .order-*-0-12              (再小螢幕順序由0改成5)		 
+*   .flex-*-nowrap             (在不同螢幕不要包住項目)	
+*   .flex-*-wrap               (在不同螢幕要包住項目)	
+*   .flex-*-wrap-reverse       (在不同螢幕反向包住項目)	
+*   .align-content-*-start     (在不同螢幕從頭開始對齊項目)
+*   .align-content-*-end       (在不同螢幕從尾開始對齊項目)	
+*   .align-content-*-center    (在不同螢幕中間開始對齊項目)		
+*   .align-content-*-around    (在不同螢幕中間項目圍繞)	
+*   .align-content-*-stretch   (在不同螢幕中間項目延伸)		
+		 
+*   .align-items-*-start       (在不同螢幕從頭開始對齊單行項目)	
+*   .align-items-*-end         (在不同螢幕從尾開始對齊單行項目)	
+*   .align-items-*-center      (在不同螢幕從頭中間對齊單行項目)	
+*   .align-items-*-baseline    (在不同螢幕單行排在基準線)	
+*   .align-items-*-stretch     (在不同螢幕單行拉伸項目)
+ 	
+*   .align-self-*-start        (在不同螢幕從頭開始對齊柔性項目)	
+*   .align-self-*-end          (在不同螢幕從尾開始對齊柔性項目)	
+*   .align-self-*-center       (在不同螢幕將柔性項目置中)	
+*   .align-self-*-baseline     (在不同螢幕將柔性項目置於基準線)	
+*   .align-self-*-stretch      (在不同螢幕拉伸柔性項目)
+-->
+
+    <!-- ************************************************************************************ -->
+
+    <!--? Bootstrap中的 col-sm-1 ~ col-sm-12 由小到最大 在小螢幕跨越1列~12列 -->
+    <!--? 通常 container 只有左右 可利用.pt-5 增加額外的填充 讓排版看起來更好 -->
+    <div class="cotainer p-3 bg-primary text-white text-center wow fadeIn" data-wow-delay="0.2s" id="Home">
+        <h1>這是一個使用Bootstrap 5.3.0的網頁</h1>
+        <p>此網頁使用27吋螢幕製作,無特別測試其他尺寸,可能展示有所不同</p>
+        <p id="Home1">因為這是一個筆記網頁,此頁含有大量代碼,瀏覽器加載延遲會造成跳轉失效,多按幾次就好</p>
+    </div>
+
+    <!-- ************************************************************************************ -->
+
+    <nav class="navbar navbar-expand-sm bg-primary-subtle sticky-top wow fadeIn" data-wow-delay="0.7s" id="nav">
+        <!-- fixed-top 為直接將導覽列定再最上面 -->
+        <ul class="nav nav-pills mx-auto">
+            <div class="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-lg btn-outline-info" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="首頁">
+                    <a href="#Home" class="text-primary">首頁</a>
+                </button>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">排版樣式</button>
+                <div class="dropdown-menu" style="transform: translateX(40%);">
+                    <a href="#BoxLine" class="text-success dropdown-item">框線文字</a>
+                    <a href="#FrameLayout" class="text-success dropdown-item">框線排版</a>
+                    <a href="#Bgc" class="text-success dropdown-item">背景顏色</a>
+                    <a href="#Ssp" class="text-success dropdown-item">Scrollspy</a>
+                    <a href="#Flex" class="text-success dropdown-item">Flex演示</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">文字大小</button>
+                <div class="dropdown-menu" style="transform: translateX(125%);">
+                    <a href="#h1-h6" class="text-success dropdown-item">大標樣式</a>
+                    <a href="#FontSize" class="text-success dropdown-item">更大的文字</a>
+                    <a href="#SmallFont" class="text-success dropdown-item">較小的文字</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">文字樣式</button>
+                <div class="dropdown-menu" style="transform: translateX(205%);">
+                    <a href="#Quotations" class="text-success dropdown-item">文章引用</a>
+                    <a href="#BL" class="text-success dropdown-item">底部虛線</a>
+                    <a href="#SpecialStyles" class="text-success dropdown-item">特別樣式</a>
+                    <a href="#Textcolor" class="text-success dropdown-item">文字顏色</a>
+                    <a href="#Tbg" class="text-success dropdown-item">文字背景</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">表格樣式</button>
+                <div class="dropdown-menu" style="transform: translateX(290%);">
+                    <a href="#BF" class="text-success dropdown-item">基本表格</a>
+                    <a href="#TableColor" class="text-success dropdown-item">表格顏色</a>
+                    <a href="#tbb" class="text-success dropdown-item">表格方框</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">警示條樣式</button>
+                <div class="dropdown-menu" style="transform: translateX(380%);">
+                    <a href="#WgL" class="text-success dropdown-item">警示連結</a>
+                    <a href="#Dwl" class="text-success dropdown-item">可關警示</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">按鈕樣式</button>
+                <div class="dropdown-menu" style="transform: translateX(470%);">
+                    <a href="#BB" class="text-success dropdown-item">基本按鈕</a>
+                    <a href="#Eb" class="text-success dropdown-item">懸停效果按鈕</a>
+                    <a href="#Bbs" class="text-success dropdown-item">按鈕大小</a>
+                    <a href="#SEB" class="text-success dropdown-item">特殊效果按鈕</a>
+                    <a href="#BG" class="text-success dropdown-item">按鈕群組</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown">特別物件</button>
+                <div class="dropdown-menu" style="transform: translateX(553%);">
+                    <a href="#Medallion" class="text-success dropdown-item">勳章樣式</a>
+                    <a href="#LoadingStyle" class="text-success dropdown-item">載入樣式</a>
+                    <a href="#Pb" class="text-success dropdown-item">進度條</a>
+                    <a href="#card" class="text-success dropdown-item">卡片樣式</a>
+                    <a href="#PL" class="text-success dropdown-item">分頁連結</a>
+                    <a href="#Slideshow" class="text-success dropdown-item">圖像幻燈片</a>
+                    <a href="#Modal" class="text-success dropdown-item">模態面板</a>
+                    <a href="#Tooltip" class="text-success dropdown-item">提示文字</a>
+                    <a href="#effS" class="text-success dropdown-item">效果陰影</a>
+                    <a href="#scra" class="text-success dropdown-item">縮放比例</a>
+                </div>
+
+                <button type="button" class="btn btn-lg btn-outline-info text-primary dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">列表與選單</button>
+                <div class="dropdown-menu" style="transform: translateX(643%);">
+                    <a href="#BLG" class="text-success dropdown-item">基本列表組</a>
+                    <a href="#Pdm" class="text-success dropdown-item">下拉式選單</a>
+                    <a href="#Foldable" class="text-success dropdown-item">折疊式</a>
+                    <a href="#GuidedMenu" class="text-success dropdown-item">引導菜單</a>
+                    <a href="#Fpw" class="text-success dropdown-item">懸浮彈窗</a>
+                    <a href="#Sbar" class="text-success dropdown-item">側邊欄</a>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- ************************************************************************************ -->
+
+    <div class="container fixed-buttons show-animation">
+        <button class="btn bg-info text-white" id="show-button">顯示</button>
+        <button class="btn bg-info text-white" id="hide-button">隱藏</button>
+        <button class="btn bg-info"><a href="#Home" class="text-white">頁首</a></button>
+        <button class="btn bg-info"><a href="#Page-end" class="text-white">頁尾</a></button>
+    </div>
+
+    <script src="./Js/SideTools.js"></script>
+
+    <!-- ************************************************************************************ -->
+
+    <div class="container TheTcs-hide Theme-color-show" id="Themebox">
+        <button class="btn bg-info text-white" id="light-button" onclick="toggleLightMode()">白色主題</button>
+        <button class="btn bg-info text-white" id="dark-button" onclick="toggleDarkMode()">黑色主題</button>
+    </div>
+
+    <script src="./Js/ThemeSwitch.js"></script>
+
+    <!-- ************************************************************************************ -->
+
+    <div tabindex="0"> <!-- 加上 data-bs-spy="scroll" 可以監聽,滾動到哪個頁面,將當前頁面標記再導覽欄 -->
+        <div class="container col-sm-4 wow fadeIn" data-wow-delay="0.35s">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>第一欄</h3>
+                    <p>測試文字1</p>
+                    <p>測試文字2</p>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <h3>第二欄</h3>
+                    <p>測試文字3</p>
+                    <p>測試文字4</p>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>第三欄</h3>
+                    <p>測試文字5</p>
+                    <p>測試文字6</p>
+                </div>
+            </div>
+        </div>
+        <hr id="BoxLine">
+
+        <!-- ************************************************************************************ -->
+
+        <!--? p-5 = 容器內部往邊上間距為5單位 / my-5 = 容器外部上下的邊距單位 / mt-5 = 容器外部左右的邊距單位 -->
+        <div class="container p-5 my-5 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>預設框線</h1>
+            <p>測試文字</p>
+        </div>
+
+        <div class="container p-5 my-5 bg-dark text-white text-center">
+            <h1>黑底白字</h1>
+            <p>測試文字</p>
+        </div>
+
+        <div class="container p-5 my-5 bg-primary text-white text-center">
+            <h1>藍底白字</h1>
+            <p>測試文字</p>
+        </div>
+        <hr id="FrameLayout">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-3 my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>框線的排版練習</h1>
+
+            <div class="row" style="padding: 0px 50px;">
+                <div class="col bg-primary text-white text-center">測試文字</div>
+                <div class="col bg-dark text-white text-center">測試文字</div>
+                <div class="col bg-danger text-white text-center">測試文字</div>
+            </div>
+        </div>
+        <hr id="h1-h6">
+
+        <!-- ************************************************************************************ -->
+
+        <!--
+*   Bootstrap 5 的默認
+*   (font-size / 1rem = 16px) (line-height / 1.5rem)
+*   所有的 <p> 都有 margin-top: 0 和 margin-bottom: 1rem
+-->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center" style="font-size: 50px;">h1到h6的展示</h1>
+            <h1 style="padding: 0px;">h1 Bootstrap</h1>
+            <h2>h2 Bootstrap</h2>
+            <h3>h3 Bootstrap</h3>
+            <h4>h4 Bootstrap</h4>
+            <h5>h5 Bootstrap</h5>
+            <h6>h6 Bootstrap</h6>
+        </div>
+        <hr id="FontSize">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">Display更大的字體的練習</h1>
+            <p class="display-1">Display 1</p>
+            <p class="display-2">Display 2</p>
+            <p class="display-3">Display 3</p>
+            <p class="display-4">Display 4</p>
+            <p class="display-5">Display 5</p>
+            <p class="display-6">Display 6</p>
+        </div>
+        <hr id="SmallFont">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">small更小的字體</h1>
+            <p class="text-center">測試<small>文字</small></p>
+        </div>
+        <hr id="BL">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">abbr底部虛線邊框</h1>
+            <p class="text-center">測<abbr title="test">試文</abbr>字</p>
+        </div>
+        <hr id="Quotations">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">footer引文</h1>
+            <p>這是一篇文章</p>
+            <footer class="blockquote-footer">這是文章來源</footer>
+        </div>
+        <hr id="SpecialStyles">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">特別用途標籤</h1>
+            <p>這是一個<code>code</code></p>
+            <p><kbd>win+s</kbd></p>
+        </div>
+        <hr id="Textcolor">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">文字顏色</h1>
+            <p class="text-muted">灰色顏色</p>
+            <p class="text-primary">藍色文字</p>
+            <p class="text-success">綠色文字</p>
+            <p class="text-info">水藍色文字</p>
+            <p class="text-warning">黃色文字</p>
+            <p class="text-danger">紅色文字</p>
+            <p class="text-white-50 bg-dark">白色50透明度</p>
+        </div>
+        <hr id="Bgc">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">背景顏色</h1>
+            <div class="bg-primary p-3 my-2"></div>
+            <div class="bg-success p-3 my-2"></div>
+            <div class="bg-info p-3 my-2"></div>
+            <div class="bg-warning p-3 my-2"></div>
+            <div class="bg-danger p-3 my-2"></div>
+            <div class="bg-secondary p-3 my-2"></div>
+            <div class="bg-dark p-3 my-2"></div>
+
+            <div class="p-3 my-2 bg-primary-subtle"></div>
+            <div class="p-3 my-2 bg-danger-subtle"></div>
+            <div class="p-3 my-2 bg-warning-subtle"></div>
+            <div class="p-3 my-2 bg-info-subtle"></div>
+        </div>
+        <hr id="Tbg">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>文字與背景顏色</h1>
+            <div class="text-bg-primary p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-success p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-info p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-warning p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-danger p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-secondary p-3 my-2">文字顏色自動調整與背景顏色</div>
+            <div class="text-bg-dark p-3 my-2">文字顏色自動調整與背景顏色</div>
+        </div>
+        <hr id="BF">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">基本表格</h1>
+            <!--? (table/初始,只有底線)(table-striped/加上條紋)(table-bordered/增加所有的邊框)(table-hover/滑鼠旋停變色)(table-borderless/無邊框) -->
+            <table class="table table-dark table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr id="TableColor">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">進階表格顏色</h1>
+            <table class="table table-bordered">
+                <tr class="table-secondary">
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+
+                <tbody>
+                    <tr class="table-primary">
+                        <td>水藍</td>
+                        <td>Joe</td>
+                        <td>joe@example.com</td>
+                    </tr>
+
+                    <tr class="table-success">
+                        <td>綠</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+
+                    <tr class="table-danger">
+                        <td>紅</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+
+                    <tr class="table-info">
+                        <td>天空藍</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                    </tr>
+
+                    <tr class="table-warning">
+                        <td>黃色</td>
+                        <td>Refs</td>
+                        <td>bo@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr id="WgL">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">警示鏈接</h1>
+
+            <div class="alert alert-success text-center">
+                <strong>綠色的</strong> 文字 <a href="" class="alert-link">超連結</a>
+            </div>
+
+            <div class="alert alert-info text-center">
+                <strong>天空藍的</strong> 文字 <a href="" class="alert-link">超連結</a>
+            </div>
+
+            <div class="alert alert-warning text-center">
+                <strong>黃色的</strong> 文字 <a href="" class="alert-link">超連結</a>
+            </div>
+
+            <div class="alert alert-danger text-center">
+                <strong>紅色的</strong> 文字 <a href="" class="alert-link">超連結</a>
+            </div>
+
+            <div class="alert alert-primary text-center">
+                <strong>水藍的</strong> 文字 <a href="" class="alert-link">超連結</a>
+            </div>
+        </div>
+        <hr id="Dwl">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">可關閉警示窗格</h1>
+
+            <div class="alert alert-success text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Success</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-info text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Info</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-warning text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Warning</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-danger text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Danger</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-primary text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Primary</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-secondary text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Secondary</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-dark text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Dark</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div class="alert alert-light text-center alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Light</strong> 這是一個可被關閉的警示窗格
+            </div>
+
+            <div id="liveAlertPlaceholder"></div>
+            <button type="button" class="btn btn-primary text-center" id="liveAlertBtn">警報呼叫</button>
+
+            <script>
+                const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+                const alert = (message, type) => {
+                    const wrapper = document.createElement('div')
+
+                    wrapper.innerHTML = [
+                        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                        `   <div>${message}</div>`,
+                        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                        '</div>'
+                    ].join('')
+                    alertPlaceholder.append(wrapper)
+                }
+
+                const alertTrigger = document.getElementById('liveAlertBtn')
+                if (alertTrigger) {
+                    alertTrigger.addEventListener('click', () => {
+                        alert('警報 警報 警報', 'danger')
+                    })
+                }
+            </script>
+
+        </div>
+        <hr id="BB">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>基本按鈕</h1>
+
+            <table class="table table-bordered">
+                <th colspan="3">按鈕樣式</th>
+
+                <tr>
+                    <td><button type="button" class="bth">Basic</button></td>
+                    <td><button type="button" class="btn btn-primary">Primary</button></td>
+                    <td><button type="button" class="btn btn-secondary">Secondary</button></td>
+                </tr>
+
+                <tr>
+                    <td><button type="button" class="btn btn-success">Success</button></td>
+                    <td><button type="button" class="btn btn-info">Info</button></td>
+                    <td><button type="button" class="btn btn-warning">Warning</button></button></td>
+                </tr>
+
+                <tr>
+                    <td><button type="button" class="btn btn-danger">Danger</button></td>
+                    <td><button type="button" class="btn btn-dark">Dark</button></td>
+                    <td><button type="button" class="btn btn-light">Light</button></button></td>
+                </tr>
+            </table>
+        </div>
+        <hr id="Bbs">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border justify-content-center wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">大中小按鈕</h1>
+
+            <table class="table table-bordered">
+                <th colspan="3">按鈕樣式</th>
+
+                <tr>
+                    <td><button type="button" class="btn btn-danger btn-lg">Large</button></td>
+                    <td><button type="button" class="btn btn-secondary btn-md">Default</button></td>
+                    <td><button type="button" class="btn btn-warning btn-sm">Small</button></td>
+                </tr>
+            </table>
+        </div>
+        <hr id="Eb">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>懸停效果按鈕</h1>
+
+            <table class="table table-bordered">
+                <th colspan="4">按鈕樣式</th>
+
+                <tr>
+                    <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+                    <td><button type="button" class="btn btn-outline-secondary">Secondary</button></td>
+                    <td><button type="button" class="btn btn-outline-success">Success</button></td>
+                    <td><button type="button" class="btn btn-outline-info">Info</button></td>
+                </tr>
+
+                <tr>
+                    <td><button type="button" class="btn btn-outline-warning">Warning</button></td>
+                    <td><button type="button" class="btn btn-outline-danger">Danger</button></td>
+                    <td><button type="button" class="btn btn-outline-dark">Dark</button></td>
+                    <td><button type="button" class="btn btn-outline-light text-dark">Light</button></td>
+                </tr>
+            </table>
+        </div>
+        <hr id="SEB">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">特別效果按鈕</h1>
+
+            <table class="table table-bordered">
+                <th class="text-center">按鈕樣式1</th>
+                <th class="text-center">按鈕樣式2</th>
+                <th class="text-center">按鈕樣式3</th>
+                <th class="text-center">按鈕樣式4</th>
+                <th class="text-center">按鈕樣式5</th>
+
+                <tr>
+                    <td><button type="button" class="btn btn-primary active">Active Primary</button></td>
+                    <td><button type="button" class="btn btn-primary" disabled>Disabled Primary</button></td>
+                    <td><button class="btn btn-primary"><span
+                                class="spinner-border spinner-border-sm"></span>Loading..</button></td>
+                    <td><button class="btn btn-primary" disabled><span
+                                class="spinner-border spinner-border-sm"></span>Loading..</button></td>
+                    <td><button class="btn btn-primary" disabled><span
+                                class="spinner-grow spinner-grow-sm"></span>Loading..</button></td>
+                </tr>
+            </table>
+        </div>
+        <hr id="BG">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">按鈕群組</h1>
+
+            <table class="table table-bordered">
+                <th class="text-center">垂直按鈕群組</th>
+                <th class="text-center">水平按鈕群組</th>
+                <th class="text-center">下拉式按鈕群組</th>
+
+                <tr>
+                    <!-- 垂直 -->
+                    <td rowspan="3">
+                        <div class="btn-group-vertical">
+                            <button type="button" class="btn btn-primary">Apple</button>
+                            <button type="button" class="btn btn-primary">Samsung</button>
+                            <button type="button" class="btn btn-primary">Sony</button>
+                        </div>
+                    </td>
+
+                    <!-- 水平 -->
+                    <td colspan="1">
+                        <div class="btn-group btn-group-lg">
+                            <button type="button" class="btn btn-primary">Apple</button>
+                            <button type="button" class="btn btn-primary">Samsung</button>
+                            <button type="button" class="btn btn-primary">Sony</button>
+                        </div>
+                    </td>
+
+                    <!-- 下拉式 -->
+                    <td>
+                        <button type="button" class="btn btn-primary">Apple</button>
+                        <button type="button" class="btn btn-primary">Samsung</button>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                data-bs-toggle="dropdown">Sony</button>
+                            <ol class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Tablet</a></li>
+                                <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                            </ol>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr id="Medallion">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">勳章樣式</h1>
+            <span class="badge bg-primary">Primary</span>
+            <span class="badge bg-secondary">Secondary</span>
+            <span class="badge bg-success">Success</span>
+            <span class="badge bg-danger">Danger</span>
+            <span class="badge bg-warning">Warning</span>
+            <span class="badge bg-info">Info</span>
+            <span class="badge bg-dark">Dark</span>
+
+            &nbsp;&nbsp; <!--? 這只是個空白符號不用太在意 -->
+
+            <span class="badge rounded-pill bg-primary">Primary</span>
+            <span class="badge rounded-pill bg-secondary">Secondary</span>
+            <span class="badge rounded-pill bg-success">Success</span>
+            <span class="badge rounded-pill bg-danger">Danger</span>
+            <span class="badge rounded-pill bg-warning">Warning</span>
+            <span class="badge rounded-pill bg-info">Info</span>
+            <span class="badge rounded-pill bg-dark">Dark</span>
+
+            &nbsp;&nbsp;
+
+            <p>
+                <button type="button" class="btn btn-primary">Messages <span class="badge bg-danger">8</span></button>
+                <button type="button" class="btn btn-danger">Notifications <span class="badge bg-dark">7</span></button>
+            </p>
+
+        </div>
+        <hr id="Pb">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">進度條</h1>
+
+            <div class="progress" style="height:20px">
+                <div class="progress-bar" style="width:30%;">30%</div>
+            </div>
+
+            <br>
+
+            <div class="progress" style="height:25px">
+                <div class="progress-bar" style="width:40%;">40%</div>
+            </div>
+
+            <br>
+
+            <div class="progress" style="height:30px">
+                <div class="progress-bar" style="width:50%;">50%</div>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">彩色進度條</h1>
+
+            <!-- 藍色 -->
+            <div class="progress">
+                <div class="progress-bar" style="width:10%">10%</div>
+            </div><br>
+
+            <!-- 綠色 -->
+            <div class="progress">
+                <div class="progress-bar bg-success" style="width:20%">20%</div>
+            </div><br>
+
+            <!-- 綠寶石色 -->
+            <div class="progress">
+                <div class="progress-bar bg-info" style="width:30%">30%</div>
+            </div><br>
+
+            <!-- 橘色 -->
+            <div class="progress">
+                <div class="progress-bar bg-warning" style="width:40%">40%</div>
+            </div><br>
+
+            <!-- 紅色 -->
+            <div class="progress">
+                <div class="progress-bar bg-danger" style="width:50%">50%</div>
+            </div><br>
+
+            <!-- 灰色 -->
+            <div class="progress">
+                <div class="progress-bar bg-secondary" style="width:60%">60%</div>
+            </div><br>
+
+            <!-- 白色 -->
+            <div class="progress border">
+                <div class="progress-bar bg-white" style="width:70% ; color: rgb(0, 0, 0);">70%</div>
+            </div><br>
+
+            <!-- 黑色 -->
+            <div class="progress">
+                <div class="progress-bar bg-dark" style="width:80%">80%</div>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">條文進度條</h1>
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" style="width:30%">30%</div>
+            </div><br>
+
+            <div class="progress">
+                <div class="progress-bar bg-success progress-bar-striped" style="width:40%">40%</div>
+            </div><br>
+
+            <div class="progress">
+                <div class="progress-bar bg-info progress-bar-striped" style="width:50%">50%</div>
+            </div><br>
+
+            <div class="progress">
+                <div class="progress-bar bg-warning progress-bar-striped" style="width:60%">60%</div>
+            </div><br>
+
+            <div class="progress">
+                <div class="progress-bar bg-danger progress-bar-striped" style="width:70%">70%</div>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">動畫進度條</h1>
+
+            <div class="progress">
+                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:50%">50%</div>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">堆疊進度條</h1>
+
+            <div class="progress">
+
+                <dev class="progress-bar bg-danger" style="width: 30%;">損壞空間30%</dev>
+
+                <dev class="progress-bar bg-warning" style="width: 20%;">使用空間20%</dev>
+
+                <dev class="progress-bar bg-success" style="width: 40%;">剩餘空間40%</dev>
+            </div>
+        </div>
+        <hr id="LoadingStyle">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-1 mt-2 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">彩色載入Spinners</h1>
+
+            <div class="justify-content-center align-items-center d-flex">
+                <div class="spinner-border text-muted"></div>
+                <div class="spinner-border text-primary"></div>
+                <div class="spinner-border text-success"></div>
+                <div class="spinner-border text-info"></div>
+                <div class="spinner-border text-warning"></div>
+                <div class="spinner-border text-danger"></div>
+                <div class="spinner-border text-dark"></div>
+            </div>
+
+            <div class="justify-content-center align-items-center d-flex p-5">
+                <div class="spinner-grow text-muted"></div>
+                <div class="spinner-grow text-primary"></div>
+                <div class="spinner-grow text-success"></div>
+                <div class="spinner-grow text-info"></div>
+                <div class="spinner-grow text-warning"></div>
+                <div class="spinner-grow text-danger"></div>
+                <div class="spinner-grow text-dark"></div>
+            </div>
+        </div>
+        <hr id="PL">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">分頁連結列表</h1>
+
+            <ol class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item active"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">back</a></li>
+                <li class="page-item"><a class="page-link pagination-sm" href="#">Small</a></li>
+                <li class="page-item"><a class="page-link pagination" href="#">Default</a></li>
+                <li class="page-item"><a class="page-link pagination-lg" href="#">Large</a></li>
+            </ol>
+        </div>
+        <hr id="BLG">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">基本列表組</h1>
+
+            <ol class="list-group text-center">
+                <li class="list-group-item active">被觸發的樣式</li>
+                <li class="list-group-item">基本的樣式</li>
+                <li class="list-group-item list-group-item-action">懸停效果的樣式</li>
+                <li class="list-group-item disabled">被鎖定的樣式</li>
+            </ol><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">有序列表組</h1>
+
+            <ol class="list-group list-group-numbered text-center">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item">Second item</li>
+                <li class="list-group-item">Third item</li>
+            </ol><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">水平列表組</h1>
+
+            <ol class="list-group list-group-horizontal justify-content-center">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item">Second item</li>
+                <li class="list-group-item">Third item</li>
+                <li class="list-group-item">Fourth item</li>
+            </ol><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">色彩與連結列表組</h1>
+
+            <div class="list-group text-center">
+                <a href="#" class="list-group-item list-group-item-action list-group-item-success">Success item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Secondary item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Warning item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Danger item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Primary item</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark item</a>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1 class="text-center">帶有勳章的列表組</h1>
+
+            <ol class="list-group align-items-center p-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Inbox
+                    &nbsp;<span class="badge bg-primary rounded-pill">30</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">Ads
+                    &nbsp;<span class="badge bg-primary rounded-pill">50</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">Junk
+                    &nbsp;<span class="badge bg-primary rounded-pill">99</span>
+                </li>
+            </ol>
+        </div>
+        <hr id="card">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>Card卡片樣式</h1>
+
+            <div class="d-flex justify-content-center text-white">
+
+                <div class="card bg-danger mx-lg-5" style="width: 500px;">
+                    <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="連線失敗">
+
+                    <div class="card-img-body">
+                        <h2 class="card-title">你的名子</h2>
+                        <h4 class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容</h4>
+                    </div>
+                </div>
+
+                <div class="card bg-primary mx-lg-5" style="width: 500px;">
+                    <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar5.png" alt="連線失敗">
+
+                    <div class="card-img-body">
+                        <h2 class="card-title">你的名子</h2>
+                        <h4 class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr id="Pdm">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-5 my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s" style="height:600px">
+            <h1>下拉式表單</h1>
+
+            <button type="button" class="btn btn-primary">水平按鈕1</button>
+            <button type="button" class="btn btn-primary">水平按鈕2</button>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">你拉阿 按鈕</button>
+
+            <div class="btn-group">
+                <ol class="dropdown-menu">
+                    <li>
+                        <h5 class="dropdown-header">標題 1</h5>
+                    </li>
+                    <li><a class="dropdown-item" href="#">內容 1</a></li>
+                    <li><a class="dropdown-item" href="#">內容 2</a></li>
+                    <li><a class="dropdown-item" href="#">內容 3</a></li>
+                    <li>
+                        <h5 class="dropdown-header">標題 2</h5>
+                    </li>
+                    <li><a class="dropdown-item" href="#">內容 1</a></li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item active" href="#">被選擇的</a></li>
+                    <li><a class="dropdown-item disabled" href="#">想要點我嗎</a></li>
+                </ol>
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <h1>垂直下拉式</h1>
+
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-primary">Apple</button>
+                <button type="button" class="btn btn-primary">Samsung</button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle"
+                        data-bs-toggle="dropdown">Sony</button>
+                    <ol class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Tablet</a></li>
+                        <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <hr id="Foldable">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s" style="height:500px">
+            <h1>基本可折疊</h1>
+
+            <a href="#ExpandTheArticle" class="btn btn-primary" data-bs-toggle="collapse">展開文章</a>
+            <div id="ExpandTheArticle" class="collapse">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div><br>
+
+            <br> <!-- --------------------我是分隔線------------------------- -->
+
+            <div id="accordion">
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">Collapsible Group Item #1</a>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">Collapsible Group Item
+                            #2</a>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">Collapsible Group Item
+                            #3</a>
+                    </div>
+
+                    <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr id="GuidedMenu">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 border text-center wow fadeIn" data-wow-delay="0.35s">
+
+            <nav class="navbar navbar-expand bg-dark navbar-dark" style="height: 70px;">
+                <div class="container-fluid">
+                    <h1>版面定位</h1>
+                </div>
+
+                <form class="d-flex" style="padding: 20px;">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+            </nav>
+
+            <iframe src="./OtherPG/AddBootstrap_0.htm" class="container" height="450" frameborder="0" name="null">
+            </iframe>
+        </div>
+        <hr id="Slideshow">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>圖片幻燈片</h1>
+
+            <div id="slide_show" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#slide_show" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#slide_show" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#slide_show" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./Picture/la.jpg" alt="連線失敗" class="d-block" style="width: 100%;">
+                        <div class="carousel-caption">
+                            <h3>文字標題1</h3>
+                            <p>這是一串文字喔</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="./Picture/chicago.jpg" alt="連線失敗" class="d-block" style="width: 100%;">
+                        <div class="carousel-caption">
+                            <h3>文字標題2</h3>
+                            <p>這是一串文字喔</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="./Picture/ny.jpg" alt="連線失敗" class="d-block" style="width: 100%;">
+                        <div class="carousel-caption">
+                            <h3>文字標題3</h3>
+                            <p>這是一串文字喔</p>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slide_show"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#slide_show"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr id="Modal">
+
+        <!--
+*   .carousel                   創建一個旋轉木馬
+*   .carousel-indicators        爲旋轉木馬添加指標，底部的小圓點
+*   .carousel-inner             將幻燈片添加到旋轉木馬中
+*   .carousel-item              指定每張幻燈片的內容
+*   .carousel-control-prev      在旋轉木馬上添加一個左邊（前一個）的按鈕，允許用戶在幻燈片之間返回。
+*   .carousel-control-next      爲旋轉木馬添加一個右鍵（下一個），允許用戶在幻燈片之間前進。
+*   .carousel-control-prev-icon 創建一個 "上一個"按鈕。
+*   .carousel-control-next-icon 創建一個 "下一個"按鈕。
+*   .slide                      添加一個CSS過渡和動畫效果
+-->
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-5 my-5 mt-3 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>模態Modal</h1>
+
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mymodal">基本模態</button>
+        </div>
+
+        <!--! 模態面板 -->
+        <!--? class="fade" 是淡出動畫效果 -->
+        <div class="modal fade" id="mymodal">
+            <!--? 模態置中 modal-dialog-centered -->
+            <!--? 模態大小 (modal-sm / 小) (modal-lg / 中) (modal-xl / 大) (modal-fullscreen / 全螢幕) -->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+
+                    <!--! 模態標題 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">模態標題</h4>
+                    </div>
+
+                    <!--! 模態內容 -->
+                    <div class="modal-body text-center">
+                        <h3>內容的部份</h3>
+                        <label>上了三個月的網頁課程 什麼東西都沒學到因何而發生？上了三個月的網頁課程 什麼東西都沒學到，到底應該如何實現。更多上了三個月的網頁課程
+                            什麼東西都沒學到的意義是這樣的，既然如此，非洲有講過一句名言，最靈繁的人也看不見自己的背脊。這不禁令我深思。</label><br><br><br>
+                        <label>我這幾天一直在思索這個問題，我們一般認為，抓住了問題的關鍵，其他一切則會迎刃而解。就我個人來說，上了三個月的網頁課程
+                            什麼東西都沒學到對我的意義，不能不說非常重大。我們都知道，只要有意義，那麽就必須慎重考慮。而這些並不是完全重要，更加重要的問題是，一般來說，總結的來說，問題的關鍵究竟為何？本人也是經過了深思熟慮，在每個日日夜夜思考這個問題。帶著這些問題，我們來審視一下上了三個月的網頁課程
+                            什麼東西都沒學到。</label><br><br><br>
+                        <label>生活中，若上了三個月的網頁課程 什麼東西都沒學到出現了，我們就不得不考慮它出現了的事實。瞭解清楚上了三個月的網頁課程
+                            什麼東西都沒學到到底是一種怎麽樣的存在，是解決一切問題的關鍵。其實上了三個月的網頁課程 什麼東西都沒學到是非常值得我們深思的。</label><br><br><br>
+                    </div>
+
+                    <!--! 退出按鈕 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr id="Tooltip">
+
+        <!--
+*   .modal-fullscreen-sm-down	576px 以下全屏	
+*   .modal-fullscreen-md-down	768px 以下全屏	
+*   .modal-fullscreen-lg-down	992px 以下全屏
+*   .modal-fullscreen-xl-down	1200px 以下全屏
+*   .modal-fullscreen-xxl-down	1400px 以下全屏
+-->
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-3 mt-3 my-5 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>提示文字Tooltip</h1>
+
+            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="這是往上顯示">Top</a>
+            <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="這是往下顯示">Bottom</a>
+            <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" title="這是往左顯示">Left</a>
+            <a href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="這是往右顯示">Right</a>
+
+            <script>
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl)
+                })
+            </script>
+        </div>
+        <hr id="Fpw">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container border text-center wow fadeIn" data-wow-delay="0.35s" style="height: 350px;">
+            <h1>懸浮彈窗</h1>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="popover" data-bs-placement="left"
+                data-bs-trigger="hover" title="左左左左" data-bs-content="測試文字" id="toastbtn1">
+                不要按我
+            </button>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="popover" data-bs-placement="top"
+                data-bs-trigger="focus" title="上上上上" data-bs-content="測試文字">
+                用力按我
+            </button>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="popover" data-bs-placement="bottom"
+                data-bs-trigger="focus" title="下下下下" data-bs-content="測試文字">
+                用力按我
+            </button>
+
+            <button type="button" class="btn btn-info" data-bs-toggle="popover" data-bs-placement="right"
+                data-bs-trigger="hover" title="右右右右" data-bs-content="測試文字" id="toastbtn2">
+                不要按我
+            </button>
+
+            <div class="toast p-2 w-10" style="margin: 50px 10px 10px 470px;">
+                <div class="toast-header">
+                    <strong class="me-auto">叫你點了嗎</strong>
+                    <small>1秒以前</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">
+                    <p>不是說不要點嗎</p>
+                </div>
+            </div>
+
+            <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                    return new bootstrap.Popover(popoverTriggerEl)
+                })
+
+                document.getElementById("toastbtn1").onclick = function () {
+                    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                    var toastList = toastElList.map(function (toastEl) {
+                        return new bootstrap.Toast(toastEl)
+                    })
+                    toastList.forEach(toast => toast.show())
+                }
+                document.getElementById("toastbtn2").onclick = function () {
+                    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                    var toastList = toastElList.map(function (toastEl) {
+                        return new bootstrap.Toast(toastEl)
+                    })
+                    toastList.forEach(toast => toast.show())
+                }
+            </script>
+        </div>
+        <hr id="Ssp">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-5 border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>Scrollspy</h1>
+
+            <iframe src="./OtherPG/AddBootstrap_1.htm" class="container-fluid w-100" height="450" frameborder="0"
+                name="null">
+            </iframe>
+
+        </div>
+        <hr id="Sbar">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="offcanvas offcanvas-start text-bg-dark wow fadeIn" data-wow-delay="0.35s" id="Sidebar_Left">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title" style="color: white;">標題內容</h>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <p>文本內容文本內容</p>
+                <p>文本內容文本內容</p>
+                <p>文本內容文本內容</p>
+                <button class="btn btn-secondary" type="button">就是一個按鈕</button>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end text-bg-dark" id="Sidebar_Right">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title" style="color: white;">標題內容</h>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <p>文本內容文本內容</p>
+                <p>文本內容文本內容</p>
+                <p>文本內容文本內容</p>
+                <button class="btn btn-secondary" type="button">就是一個按鈕</button>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-top text-bg-dark" style="padding-bottom: 300px;" id="Sidebar_Top">
+            <div class="offcanvas-header" style="padding:0%;">
+                <h1 class="offcanvas-title" style="color: white;">標題內容</h>
+                    <button type="button" class="btn-close" style="margin-left: 1000px;"
+                        data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body text-center" style="padding:50px;">
+                <p>文本內容文本內容</p>
+                <button class="btn btn-secondary" type="button">就是一個按鈕</button>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-bottom text-bg-dark" style="padding-bottom: 300px;" id="Sidebar_Bottom">
+            <div class="offcanvas-header" style="padding:0%;">
+                <h1 class="offcanvas-title" style="color: white;">標題內容</h>
+                    <button type="button" class="btn-close" style="margin-left: 1000px;"
+                        data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body text-center" style="padding-bottom:150px;">
+                <p>文本內容文本內容</p>
+                <button class="btn btn-secondary" type="button">就是一個按鈕</button>
+            </div>
+        </div>
+
+        <div class="container p-5 border text-center">
+            <h1>側邊欄</h1>
+
+            <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#Sidebar_Left">
+                開啟左側邊欄
+            </button>
+
+            <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#Sidebar_Top">
+                開啟上邊欄
+            </button>
+
+            <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#Sidebar_Bottom">
+                開啟下邊欄
+            </button>
+
+            <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#Sidebar_Right">
+                開啟右側邊欄
+            </button>
+        </div>
+        <hr id="tbb">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container border text-center wow fadeIn" data-wow-delay="0.35s" style="width: auto; height: 1050px">
+            <h1>表格方框</h1>
+
+            <span class="border border-dark">四面框</span>
+            <span class="border border-0 border-dark">無邊框</span>
+            <span class="border border-top-0 border-dark">上方無框</span>
+            <span class="border border-bottom-0 border-dark">下方無框</span>
+            <span class="border border-start-0 border-dark">左方無框</span>
+            <span class="border border-end-0 border-dark">右方無框</span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border-top border-dark">只有上方</span>
+            <span class="border-end border-dark">只有右方</span>
+            <span class="border-bottom border-dark">只有下方</span>
+            <span class="border-start border-dark">只有左方</span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border border-1 border-dark"></span>
+            <span class="border border-2 border-dark"></span>
+            <span class="border border-3 border-dark"></span>
+            <span class="border border-4 border-dark"></span>
+            <span class="border border-5 border-dark"></span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border border-3 border-primary"></span>
+            <span class="border border-3 border-secondary"></span>
+            <span class="border border-3 border-success"></span>
+            <span class="border border-3 border-danger"></span>
+            <span class="border border-3 border-warning"></span>
+            <span class="border border-3 border-info"></span>
+            <span class="border border-3 border-dark"></span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border rounded border-dark"></span>
+            <span class="border rounded-top border-info"></span>
+            <span class="border rounded-end border-warning"></span>
+            <span class="border rounded-bottom border-danger"></span>
+            <span class="border rounded-start border-success"></span>
+            <span class="border rounded-circle border-secondary"></span>
+            <span class="border rounded-pill border-primary" style="width:130px"></span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border rounded-0 border-primary"></span>
+            <span class="border rounded-1 border-primary"></span>
+            <span class="border rounded-2 border-primary"></span>
+            <span class="border rounded-3 border-primary"></span>
+            <span class="border rounded-4 border-primary"></span>
+            <span class="border rounded-5 border-primary"></span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="border border-dark float-start">置左</span>
+            <span class="border border-dark mx-auto">置中</span>
+            <span class="border border-dark float-end">置右</span>
+
+            <br><!-- --------------------我是分隔線------------------------- -->
+
+            <span class="bg-warning float-start w-25">Width 25%</span>
+            <span class="bg-warning float-start w-50">Width 50%</span>
+            <span class="bg-warning float-start w-75">Width 75%</span>
+            <span class="bg-warning float-start w-100">Width 100%</span>
+            <span class="bg-warning float-start w-auto">Width auto</span>
+        </div>
+        <hr id="effS">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-auto border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>效果陰影(只有白色主題看得到)</h1>
+
+            <div class="shadow-none p-4 mb-4 bg-white">無影子</div>
+            <div class="shadow-sm p-4 mb-4 bg-white">小影子</div>
+            <div class="shadow p-4 mb-4 bg-white">預設影子</div>
+            <div class="shadow-lg p-4 mb-4 bg-white">大影子</div>
+        </div>
+        <hr id="scra">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-auto border text-center wow fadeIn" data-wow-delay="0.35s">
+            <h1>縮放比例(會造成卡頓將其註解)</h1>
+
+            <h2>縮放比例 1:1</h2>
+            <div class="ratio ratio-1x1">
+                <!-- <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+            </div><br>
+
+            <h2>縮放比例 4:3</h2>
+            <div class="ratio ratio-4x3">
+                <!-- <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+            </div><br>
+
+            <h2>縮放比例 16:9</h2>
+            <div class="ratio ratio-16x9">
+                <!-- <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+            </div><br>
+
+            <h2>縮放比例 21:9</h2>
+            <div class="ratio ratio-21x9">
+                <!-- <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+            </div>
+        </div>
+        <hr id="Flex">
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-auto border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">Flex演示</h1>
+
+            <div class="d-flex p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br>
+
+            <div class="d-inline-flex p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br><br>
+
+            <div class="d-flex flex-row p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br>
+
+            <div class="d-flex flex-row-reverse p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br>
+
+            <div class="d-flex flex-column p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br>
+
+            <div class="d-flex flex-column-reverse p-3 text-white bg-secondary">
+                <div class="p-2 bg-info">Flex1</div>
+                <div class="p-2 bg-warning">Flex2</div>
+                <div class="p-2 bg-primary">Flex3</div>
+            </div><br>
+
+            <div class="d-flex justify-content-start bg-secondary mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex justify-content-end bg-secondary mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex justify-content-center bg-secondary mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex justify-content-between bg-secondary mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex justify-content-around bg-secondary mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3">
+                <div class="p-2 flex-fill bg-info">Flex item 1</div>
+                <div class="p-2 flex-fill bg-warning">Flex item 2</div>
+                <div class="p-2 flex-fill bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 flex-grow-1 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3 bg-secondary">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3 bg-secondary">
+                <div class="p-2 order-3 bg-info">Flex item 1</div>
+                <div class="p-2 order-2 bg-warning">Flex item 2</div>
+                <div class="p-2 order-1 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3 bg-secondary">
+                <div class="p-2 ms-auto bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div><br>
+
+            <div class="d-flex mb-3 bg-secondary">
+                <div class="p-2  bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 me-auto bg-primary">Flex item 3</div>
+            </div><br>
+
+            <code>.flex-wrap:</code>
+            <div class="d-flex flex-wrap bg-light">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.flex-wrap-reverse:</code>
+            <div class="d-flex flex-wrap-reverse bg-light">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.flex-nowrap:</code>
+            <div class="d-flex flex-nowrap bg-light">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+            </div><br>
+
+            <code>.align-content-start (default):</code>
+            <div class="d-flex flex-wrap align-content-start bg-light" style="height:250px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.align-content-end:</code>
+            <div class="d-flex flex-wrap align-content-end bg-light" style="height:250px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.align-content-center:</code>
+            <div class="d-flex flex-wrap align-content-center bg-light" style="height:250px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div>
+
+            <code>.align-content-around:</code>
+            <div class="d-flex flex-wrap align-content-around bg-light" style="height:250px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.align-content-stretch:</code>
+            <div class="d-flex flex-wrap align-content-stretch bg-light" style="height:250px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+                <div class="p-2 border">Flex item 4</div>
+                <div class="p-2 border">Flex item 5</div>
+                <div class="p-2 border">Flex item 6</div>
+                <div class="p-2 border">Flex item 7</div>
+                <div class="p-2 border">Flex item 8</div>
+                <div class="p-2 border">Flex item 9</div>
+                <div class="p-2 border">Flex item 10</div>
+                <div class="p-2 border">Flex item 11</div>
+                <div class="p-2 border">Flex item 12</div>
+                <div class="p-2 border">Flex item 13</div>
+                <div class="p-2 border">Flex item 14</div>
+                <div class="p-2 border">Flex item 15</div>
+                <div class="p-2 border">Flex item 16</div>
+                <div class="p-2 border">Flex item 17</div>
+                <div class="p-2 border">Flex item 18</div>
+                <div class="p-2 border">Flex item 19</div>
+                <div class="p-2 border">Flex item 20</div>
+                <div class="p-2 border">Flex item 21</div>
+                <div class="p-2 border">Flex item 22</div>
+                <div class="p-2 border">Flex item 23</div>
+                <div class="p-2 border">Flex item 24</div>
+                <div class="p-2 border">Flex item 25</div>
+            </div><br>
+
+            <code>.align-self-start:</code>
+            <div class="d-flex bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border align-self-start">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-self-end:</code>
+            <div class="d-flex bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border align-self-end">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-self-center:</code>
+            <div class="d-flex bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border align-self-center">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-self-baseline:</code>
+            <div class="d-flex bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border align-self-baseline">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-self-stretch (default):</code>
+            <div class="d-flex bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border align-self-stretch">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-items-start:</code>
+            <div class="d-flex align-items-start bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-items-end:</code>
+            <div class="d-flex align-items-end bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-items-center:</code>
+            <div class="d-flex align-items-center bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-items-baseline:</code>
+            <div class="d-flex align-items-baseline bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+
+            <code>.align-items-stretch (default):</code>
+            <div class="d-flex align-items-stretch bg-light" style="height:150px">
+                <div class="p-2 border">Flex item 1</div>
+                <div class="p-2 border">Flex item 2</div>
+                <div class="p-2 border">Flex item 3</div>
+            </div><br>
+        </div>
+        <hr>
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-auto border wow fadeIn" data-wow-delay="0.35s">
+            <h1 class="text-center">堆疊形式</h1>
+
+            <form action="#">
+                <div class="mb-3 mt-3">
+                    <label>是有什麼意見:</label>
+                    <textarea class="form-control" rows="3" placeholder="有意見就說阿"></textarea>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label>Email:</label>
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter email">
+                </div>
+
+                <div class="mb-3">
+                    <label>Password:</label>
+                    <input type="password" class="form-control form-control-lg" placeholder="Enter password">
+                    <input type="password" class="form-control-plaintext form-control-lg" placeholder="確認密碼">
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control form-control-sm" placeholder="姓">
+                    </div>
+
+                    <div class="col">
+                        <input type="text" class="form-control form-control-sm" placeholder="名">
+                    </div>
+                </div>
+
+                <input type="text" class="form-control mt-3" placeholder="你也想輸入嗎" disabled>
+
+                <div class="mb-3 mt-3">
+                    <label>選擇檔案:</label>
+                    <input type="file" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-check mx-3 p-2">
+                    <label class="check">
+                        <input class="form-check-input" type="checkbox">記住帳密
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label>選色器:</label>
+                    <input type="color" class="form-control form-control-color" id="myColor" value="#000"
+                        title="Choose a color">
+                </div>
+
+                <button type="submit" class="btn btn-info mb-3">送出</button>
+            </form>
+        </div>
+        <hr>
+
+        <!-- ************************************************************************************ -->
+
+        <div class="container p-auto border wow fadeIn" data-wow-delay="0.35s">
+
+
+        </div>
+
+        <div id="Page-end"></div>
+    </div>
+
+    <script>new WOW().init();</script>
+</body>
+
+</html>
