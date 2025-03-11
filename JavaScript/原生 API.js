@@ -28,7 +28,7 @@ class Collection {
  * [取得元素同級 下方的元素]: 元素.nextElementSibling
  * [取得元素最後一個子節點]: 元素.lastElementChild
  *
- * Todo (可配合 .add() / .remov())
+ * Todo (可配合 .add() | .remov())
  * [取得元素 Html]: 元素.innerHTML (設置: 元素1.innerHTML = html)
  * [獲取元素 文本]: 元素.innerText (同上)
  * [獲取/設置 樣式]: 元素.style
@@ -122,24 +122,23 @@ class Collection {
  *
  *? 監聽後事件:
  * document.addEventListener("監聽類型", event => {
- * event.preventDefault() 防止默認行為, 例如跳轉, 送出表單等
- * event.stopPropagation() 防止事件傳播, 用於事件只作用在特定元素
- * event.stopImmediatePropagation() 與上方功能類似, 並防止呼叫其他相同事件類型的事件監聽器
+ *    event.preventDefault() 防止默認行為, 例如跳轉, 送出表單等
+ *    event.stopPropagation() 防止事件傳播, 用於事件只作用在特定元素
+ *    event.stopImmediatePropagation() 與上方功能類似, 並防止呼叫其他相同事件類型的事件監聽器
  *
- * event.type 觸發的事件類型
- * event.target 獲取事件物件
- * event.currentTarget 獲取事件觸發元素
+ *    event.type 觸發的事件類型
+ *    event.target 獲取事件物件
+ *    event.currentTarget 獲取事件觸發元素
  *
- * event.key 獲取鍵盤相關鍵值
- * event.keyCode 鍵排按鈕的 code 碼
- * event.clientX 獲取滑鼠觸發的座標
- * event.clientY
- * })
- *
- * 附加選項:
- * { capture: true } 立即觸發, 預設是冒泡階段才觸發
- * { once: true } 一次性監聽, 觸發後立即移除
- * { passive: true } 被動模式, 當監聽器不會使用, preventDefault() 取消默認, 添加該參數可提高性能
+ *    event.key 獲取鍵盤相關鍵值
+ *    event.keyCode 鍵排按鈕的 code 碼
+ *    event.clientX 獲取滑鼠觸發的座標
+ *    event.clientY
+ * }, {
+ *    capture: true, 立即觸發, 預設是冒泡階段才觸發
+ *    once: true, 一次性監聽, 觸發後立即移除
+ *    passive: true 被動模式, 當監聽器不會使用, preventDefault() 取消默認, 添加該參數可提高性能
+ * });
  */
 
 /**_________________________
@@ -278,8 +277,8 @@ class Collection {
  * Number.toPrecision(2) [回傳指定長度的數字]
  *
  * Number() [轉換為整數 類型]
+* parseInt() [解析為整數]
  * parseFloat() [解析為浮點數]
- * parseInt() [解析為整數]
  */
 
  /**_________________________
@@ -307,7 +306,7 @@ class Collection {
  ** { JSON }
  *
  * [解析Json為 js 對象]: JSON.parse(JsonString);
- * [js 對象 轉為 Json]: JSON.stringify(Js物件, 替換/null, 縮排/4)
+ * [js 對象 轉為 Json]: JSON.stringify(Js物件, 替換=null, 縮排=4)
  */
 
 /**_________________________
@@ -328,5 +327,32 @@ class Collection {
  *
  * /一個正則/i [不區分大小寫]
  * /一個正則/g [全域匹配]
+ */
+
+/**_________________________
+ ** { 類型的判斷 }
+ *
+ * const obj = 某個物件
+ * 
+ * typeof obj [回傳物件的基本類型, 無法判斷物件類型]
+ * Object.prototype.toString.call(obj).slice(8, -1) [回傳物件類型, 有判斷物件類型]
+ * Array.isArray(obj) [判斷是否為陣列]
+ * obj instanceof Array|Object|Map|Set [判斷是否為 指定類型]
+ * obj.constructor === Array|Object|Map|Set [判斷是否為 指定類型]
+ */
+
+/**_________________________
+ ** { 類型的轉換 }
+ *
+ * obj = String(obj) [轉換為字串]
+ * obj = Number(obj) [轉換為數字]
+ * obj = Boolean(obj) [轉換為布林]
+ * obj = Object(obj) [轉換為物件]
+ * obj = Array(obj) [轉換為陣列]
+ * obj = Map(obj) [轉換為 Map]
+ * obj = Set(obj) [轉換為 Set]
+ * obj = Date(obj) [轉換為日期]
+ * obj = RegExp(obj) [轉換為正則]
+ * obj = Symbol(obj) [轉換為 Symbol]
  */
 }
