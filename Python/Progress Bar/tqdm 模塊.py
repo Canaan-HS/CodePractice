@@ -1,5 +1,5 @@
-from tqdm import tqdm
 import time
+from tqdm import tqdm, trange
 
 """
 第一值可為 range()
@@ -34,6 +34,8 @@ ascii : False 進度條會顯示 #
 dynamic_ncols : 動態調整進度條寬度
 lock_args : 動態調整進度條高度
 
+可透過 position 來指定進度條的位置, 實現多線程進度條
+
 """
 for _ in tqdm(
     range(100),
@@ -41,10 +43,17 @@ for _ in tqdm(
     ncols=130,
     colour='#FFBDF7',
     postfix="進度條後墜文字",
-):time.sleep(0.02)
+):time.sleep(0.01)
 
-# pbar = tqdm(total=100,desc="另一種使用方式")
-# for _ in range(100):
-    # pbar.update(1)
-    # time.sleep(0.05)
-# pbar.close()
+for _ in trange(100, desc="另一種使用方式"):
+    time.sleep(0.01)
+
+from tqdm.rich import trange
+
+for _ in trange(100, desc="彩色進度條"):
+    time.sleep(0.01)
+
+from tqdm.tk import trange
+
+for _ in trange(100, desc="tk進度條"):
+    time.sleep(0.01)
