@@ -25,7 +25,7 @@ int main() {
 
     //Todo -> 使用字串函數
 
-    printf("字串長度: %d\n", strlen(String));
+    printf("字串長度: %zu\n", strlen(String));
 
     //? 連接字串
     strcat(String, String_b);

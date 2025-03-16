@@ -11,7 +11,7 @@ int main(){
     int a;
     float b;
     double c;
-    printf("\n%u | %u | %u", sizeof(a), sizeof(b), sizeof(c));
+    printf("\n%llu | %llu | %llu", sizeof(a), sizeof(b), sizeof(c));
 
     /*
     Todo 運算符號
