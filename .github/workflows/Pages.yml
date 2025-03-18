@@ -19,9 +19,11 @@ jobs:
       - name: 配置頁面
         uses: actions/configure-pages@v5
       - name: 創建站點目錄
-        run: mkdir -p _site/HTML/Bootstrap5
-      - name: Copy files
-        run: cp -r HTML/Bootstrap5/* _site/HTML/Bootstrap5/
+        run: mkdir -p _site
+      - name: 複製文件到根目錄
+        run: cp -r HTML/Bootstrap5/* _site/
+      - name: 創建索引頁面
+        run: cp _site/Bootstrap5_Main.html _site/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
