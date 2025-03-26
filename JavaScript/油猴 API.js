@@ -174,6 +174,12 @@
  */
 
 /**----------
+ * @grant GM_cookie
+ * @example - 獲取cookie
+ * https://github.com/scriptscat/scriptcat/blob/main/example/gm_cookie.js
+ */
+
+/**----------
  * @grant GM_xmlhttpRequest
  * @requires - 發送請求
  * method: [GET, HEAD, POST]
