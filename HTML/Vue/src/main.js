@@ -1,10 +1,4 @@
-const { createApp, ref } = Vue;
+import App from './App.vue';
+import { createApp } from 'vue';
 
-createApp({
-    setup() {
-        const message = ref("Hello World");
-        return {
-            message
-        }
-    }
-}).mount('#app')
+createApp(App).mount('#app'); // 掛載 App 組件
