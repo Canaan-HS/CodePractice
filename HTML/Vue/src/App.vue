@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
+    <test title="Vue Hello World!" />
   </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
-
-  const message = ref("Hello World");
+  import test from "./components/Title.vue";
 </script>
