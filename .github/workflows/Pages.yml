@@ -9,23 +9,38 @@ permissions:
 
 concurrency:
   group: "pages"
+  cancel-in-progress: true
 
 jobs:
+  # 工作一：建置您的網站檔案
   build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢出倉庫代碼
+        uses: actions/checkout@v5
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+      - name: 準備網站檔案
+        run: |
+          mkdir -p _site
+          cp -r HTML/Bootstrap5/* _site/
+          cp _site/Bootstrap5_Main.html _site/index.html
+      - name: 上傳 Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 明確指定要上傳的路徑
+          path: './_site'
+
+  # 工作二：將建置好的檔案部署到 Pages
+  deploy:
+    # 這個工作需要等待 build 工作成功完成
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      # URL 的設定應該在這裡，因為這個工作才真正執行部署
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 檢測環境
-        uses: actions/checkout@v4
-      - name: 配置頁面
-        uses: actions/configure-pages@v5
-      - name: 創建站點目錄
-        run: mkdir -p _site
-      - name: 複製文件到根目錄
-        run: cp -r HTML/Bootstrap5/* _site/
-      - name: 創建索引頁面
-        run: cp _site/Bootstrap5_Main.html _site/index.html
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: 從 Artifact 部署到 GitHub Pages
+        id: deployment # 這個 id 讓上面的 url 語法變得有效
+        uses: actions/deploy-pages@v4
