@@ -39,6 +39,7 @@ class Collection {
  * [insertAdjacent 的 position]: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
  * [在指定位置插入 HTML 字符]: element.insertAdjacentHTML(position, text)
  * [在指定位置插入一個元素]: element.insertAdjacentElement(position, element)
+ * [解析 HTML 字符 為 Fragment 節點]: document.createRange().createContextualFragment(text);
  * [創建註解節點]: document.createComment(text)
  * [創建屬性節點]: document.createAttribute(name)
  * [定義自定義元素，用於 Web Components]: customElements.define(name, constructor, options)
