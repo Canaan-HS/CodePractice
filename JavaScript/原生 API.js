@@ -36,7 +36,11 @@ class Collection {
  * [創建文本節點]: document.createTextNode(text)
  * [複製元素節點，deep 決定是否包含子節點]: element.cloneNode(deep)
  * [創建文檔片段，用於批量操作 DOM 提升性能]: document.createDocumentFragment()
- * [insertAdjacent 的 position]: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
+ * [insertAdjacent 的 position]
+ * "beforebegin" 新節點插入到參考元素的 外部前一個同層級的位置
+ * "afterend" 新節點插入到參考元素的 外部後一個同層級的位置
+ * "afterbegin" 新節點插入到參考元素的 內部最前面
+ * "beforeend" 新節點插入到參考元素的 內部最後面
  * [在指定位置插入 HTML 字符]: element.insertAdjacentHTML(position, text)
  * [在指定位置插入一個元素]: element.insertAdjacentElement(position, element)
  * [解析 HTML 字符 為 Fragment 節點]: document.createRange().createContextualFragment(text);
