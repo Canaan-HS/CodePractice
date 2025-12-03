@@ -242,6 +242,7 @@ class Collection {
  * Array.push(新元素) [添加新元素到陣列末端]
  * Array.unshift(新元素) [添加新元素到陣列前端]
  * Array.concat(arr1, arr2, arrn) [將陣列合併, 回傳新的陣列]
+ * Array.fill(值, 開始索引, 結束索引) [填充陣列, 回傳新的陣列]
  *
  * 刪除
  * Array.pop() [刪除陣列其他元素, 回傳最後一項的值]
